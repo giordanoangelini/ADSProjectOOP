@@ -1,5 +1,13 @@
 package it.SpringBootAPI.ADSProjectOOP.model;
 
+import java.io.FileReader; 
+import java.util.Iterator; 
+import java.util.Map; 
+  
+import org.json.simple.JSONArray; 
+import org.json.simple.JSONObject; 
+import org.json.simple.parser.*;
+
 public class User {
 	
 	private long ID;
@@ -9,7 +17,8 @@ public class User {
 	private int descriptionProperties;
 	
 	public User() {
-		//	ID = prende da JSON
+		JSONObject jo = parsing();
+		name = (String) jo.get("name");
 		//	name = 
 		//	screenName = 
 		//	description =
@@ -17,7 +26,7 @@ public class User {
 		//	descriptionProperties = properties fatto su JSON
 	}
 	
-	private int characterCount() {
+	/*private int characterCount() {
 		
 	}
 	
@@ -31,7 +40,7 @@ public class User {
 	
 	private boolean isThereLink() {
 		
-	}
+	}*/
 
 	public long getID() {
 		return ID;
@@ -52,4 +61,10 @@ public class User {
 	public int getDescriptionProperties() {
 		return descriptionProperties;
 	}
-}
+	
+	public static void main(String[] args) {
+		String ID = getID();
+		System.out.print(ID);
+	}
+		
+	}
