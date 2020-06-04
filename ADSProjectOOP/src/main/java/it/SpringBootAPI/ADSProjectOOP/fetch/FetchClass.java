@@ -2,6 +2,7 @@ package it.SpringBootAPI.ADSProjectOOP.fetch;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
@@ -32,12 +33,11 @@ public class FetchClass {
 				}
 					
 					
-			}finally {
+			} finally {
 				in.close();
 			}
 				
-			}catch (IOException e) {
-					
+			} catch (IOException e) {	
 				System.out.println ("I/O Error" + e);
 			}
 			
@@ -47,17 +47,15 @@ public class FetchClass {
 	//metodo che effettua il PARSING del JSON
 	public JSONObject parsing () {	
 			
-			//viene definito un oggetto JSONObject e inizializzo a null	
-			JSONObject obj = null; 
-			String data = getJSONFromURL();
-			try {
-				obj = (JSONObject)JSONValue.parseWithException(data); //parsing
-			
-			} catch (ParseException e) {
-			
-				e.printStackTrace();
-			}	 
-				
-			return obj;
+		String jString = getJSONFromURL();
+		JSONObject json = null;
+		
+		JSONParser parser = new JSONParser(); 
+		try {
+			json = (JSONObject) parser.parse(jString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+			return json;
 	}
 }

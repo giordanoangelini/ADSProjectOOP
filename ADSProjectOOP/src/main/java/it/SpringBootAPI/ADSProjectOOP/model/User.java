@@ -1,25 +1,22 @@
 package it.SpringBootAPI.ADSProjectOOP.model;
 
-import java.io.FileReader; 
-import java.util.Iterator; 
-import java.util.Map; 
-  
-import org.json.simple.JSONArray; 
-import org.json.simple.JSONObject; 
-import org.json.simple.parser.*;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass;
 
 public class User {
 	
 	private long ID;
-	private String name;
+	private static String name;
 	private String screenName;
+	private String description;
 	private int characterNumber;
 	private int descriptionProperties;
 	
 	public User() {
-		JSONObject jo = parsing();
-		name = (String) jo.get("name");
-		//	name = 
+		
 		//	screenName = 
 		//	description =
 		//	characterNumber = characterCount fatto su JSON
@@ -42,16 +39,20 @@ public class User {
 		
 	}*/
 
-	public long getID() {
+	public  long getID() {
 		return ID;
 	}
 
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 
 	public String getScreenName() {
 		return screenName;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 
 	public int getCharacterNumber() {
@@ -63,8 +64,9 @@ public class User {
 	}
 	
 	public static void main(String[] args) {
-		String ID = getID();
-		System.out.print(ID);
+		FetchClass obj = new FetchClass();
+		JSONObject json = obj.parsing();
+		System.out.print(json);
 	}
 		
-	}
+}
