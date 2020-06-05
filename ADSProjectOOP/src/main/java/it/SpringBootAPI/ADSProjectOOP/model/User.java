@@ -1,5 +1,6 @@
 package it.SpringBootAPI.ADSProjectOOP.model;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -11,17 +12,30 @@ public class User {
 	private long ID;
 	private static String name;
 	private String screenName;
-	private String description;
+	private static String description;
 	private int characterNumber;
 	private int descriptionProperties;
 	
-	public User() {
+	/*public User() {
+		FetchClass obj = new FetchClass();
+		JSONObject jo = obj.parsing();
+		JSONObject objI = (JSONObject) (jo.get("users"));
+		JSONArray objA = (JSONArray) (objI.get("users"));
 		
+		for(Object o: objA){
+			if ( o instanceof JSONObject ) {
+		    	JSONObject o1 = (JSONObject)o; 
+		    	name = (String)o1.get("name");
+		    	description = (String)o1.get("description");
+		    	System.out.println(description);
+	        	}
+		 	}
+		}
+		*/
 		//	screenName = 
 		//	description =
 		//	characterNumber = characterCount fatto su JSON
 		//	descriptionProperties = properties fatto su JSON
-	}
 	
 	/*private int characterCount() {
 		
@@ -65,8 +79,18 @@ public class User {
 	
 	public static void main(String[] args) {
 		FetchClass obj = new FetchClass();
-		JSONObject json = obj.parsing();
-		System.out.print(json);
-	}
+		JSONObject jo = obj.parsing();
 		
+		JSONArray objA = (JSONArray) (jo.get("users"));
+		
+		for(Object o: objA){
+			if ( o instanceof JSONObject ) {
+		    	JSONObject o1 = (JSONObject)o; 
+		    	name = (String)o1.get("name");
+		    	description = (String)o1.get("description");
+		    	System.out.println(name);
+		    	System.out.println(description + "\n");
+	        	}
+		}
+	}
 }
