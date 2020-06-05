@@ -1,5 +1,7 @@
 package it.SpringBootAPI.ADSProjectOOP.model;
 
+import java.util.Vector;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -10,32 +12,33 @@ import it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass;
 public class User {
 	
 	private long ID;
-	private static String name;
+	private String name;
 	private String screenName;
-	private static String description;
-	private int characterNumber;
-	private int descriptionProperties;
+	private String description;
+	//private int characterNumber;
+	//private int descriptionProperties;
 	
 	/*public User() {
-		FetchClass obj = new FetchClass();
-		JSONObject jo = obj.parsing();
-		JSONObject objI = (JSONObject) (jo.get("users"));
-		JSONArray objA = (JSONArray) (objI.get("users"));
+		FetchClass fetchObject = new FetchClass();
+		JSONObject jo = fetchObject.parsing();
 		
-		for(Object o: objA){
-			if ( o instanceof JSONObject ) {
-		    	JSONObject o1 = (JSONObject)o; 
-		    	name = (String)o1.get("name");
-		    	description = (String)o1.get("description");
-		    	System.out.println(description);
-	        	}
-		 	}
+		JSONArray jA = (JSONArray) (jo.get("users"));
+		int i;
+		for(Object o : jA){
+			for (i = 0; i < 5; i++) {
+				if (o instanceof JSONObject) {
+			    	JSONObject o1 = (JSONObject)o; 
+			    	utenti[i].ID = (long) o1.get("id");
+			    	System.out.println(utenti[i].ID);
+			    	utenti[i].name = (String) o1.get("name");
+			    	utenti[i].screenName = (String) o1.get("screen_name");
+			    	utenti[i].description = (String) o1.get("description");	
+		        }
+			}
 		}
-		*/
-		//	screenName = 
-		//	description =
-		//	characterNumber = characterCount fatto su JSON
-		//	descriptionProperties = properties fatto su JSON
+		//System.out.println(utenti[0].name);
+    	//System.out.println(utenti[0].description + "\n");
+	}
 	
 	/*private int characterCount() {
 		
@@ -57,7 +60,7 @@ public class User {
 		return ID;
 	}
 
-	public static String getName() {
+	public  String getName() {
 		return name;
 	}
 
@@ -69,28 +72,36 @@ public class User {
 		return description;
 	}
 
-	public int getCharacterNumber() {
+	/*public int getCharacterNumber() {
 		return characterNumber;
 	}
 
 	public int getDescriptionProperties() {
 		return descriptionProperties;
-	}
+	}*/
 	
 	public static void main(String[] args) {
-		FetchClass obj = new FetchClass();
-		JSONObject jo = obj.parsing();
+		FetchClass fetchObject = new FetchClass();
+		JSONObject jo = fetchObject.parsing();
 		
-		JSONArray objA = (JSONArray) (jo.get("users"));
+		JSONArray jA = (JSONArray) (jo.get("users"));
 		
-		for(Object o: objA){
-			if ( o instanceof JSONObject ) {
+		Vector <User> utenti = new Vector<User>();
+		
+		for(Object o : jA){
+
+			if (o instanceof JSONObject) {
 		    	JSONObject o1 = (JSONObject)o; 
-		    	name = (String)o1.get("name");
-		    	description = (String)o1.get("description");
-		    	System.out.println(name);
-		    	System.out.println(description + "\n");
-	        	}
+		    	
+		    	User temp = new User();
+		    	temp.ID = (long) o1.get("id");
+		    	temp.name = (String) o1.get("name");
+		    	temp.screenName = (String) o1.get("screen_name");
+		    	temp.description = (String) o1.get("description");
+		    	
+		    	utenti.add(temp);
+	        }
 		}
+		System.out.println(utenti.elementAt(1).description);
 	}
 }
