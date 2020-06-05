@@ -15,18 +15,62 @@ public class User {
 	private int characterNumber;
 	private int descriptionProperties;
 	
-	/*private int properties() {
+	public Vector<User> fillUp() {
+		FetchClass fetchObject = new FetchClass();
+		JSONObject jObject = fetchObject.parsing();
 		
-	}
-	
-	private boolean isThereDescription() {
+		JSONArray jArray = (JSONArray) (jObject.get("users"));
 		
-	}
-	
-	private boolean isThereLink() {
+		Vector <User> userVector = new Vector <User>();
 		
-	}*/
+		for(Object object : jArray) {
 
+			if (object instanceof JSONObject) {
+		    	JSONObject object1 = (JSONObject)object; 
+		    	
+		    	User temp = new User();
+		    	temp.ID = (long) object1.get("id");
+		    	temp.name = (String) object1.get("name");
+		    	temp.screenName = (String) object1.get("screen_name");
+		    	temp.description = (String) object1.get("description");
+		    	temp.characterNumber = temp.description.length();
+		    	temp.descriptionProperties = properties(temp.description);
+		    	
+		    	userVector.add(temp);
+	        }
+		}
+		return userVector;
+	}
+	
+	private int properties(String text) {
+		int p = 0;
+		if (isThereDescription(text)) {
+			p = 1;
+			if (isThereLink(text) && !isThereHashtag(text)) p = 2;
+			if (!isThereLink(text) && isThereHashtag(text)) p = 3;
+			if (!isThereLink(text) && !isThereHashtag(text)) p = 4;
+		}
+		return p;
+	}
+	
+	private boolean isThereDescription(String text) {
+		if (text.length() == 0) return false;
+		else return true;
+	}
+	
+	private boolean isThereLink(String text) {
+		if ((text.contains("www.")) || (text.contains("https://")) || 
+		    (text.contains(".com")) || (text.contains(".net")) || 
+		    (text.contains(".it"))) return true;
+		return false;
+	}
+	
+	private boolean isThereHashtag(String text) {
+		if (text.contains("#")) return true;
+		return false;
+	}
+	
+	
 	public  long getID() {
 		return ID;
 	}
@@ -51,29 +95,12 @@ public class User {
 		return descriptionProperties;
 	}
 	
-	public Vector<User> fillUp() {
-		FetchClass fetchObject = new FetchClass();
-		JSONObject jObject = fetchObject.parsing();
-		
-		JSONArray jArray = (JSONArray) (jObject.get("users"));
-		
-		Vector <User> userVector = new Vector <User>();
-		
-		for(Object object : jArray) {
-
-			if (object instanceof JSONObject) {
-		    	JSONObject object1 = (JSONObject)object; 
-		    	
-		    	User temp = new User();
-		    	temp.ID = (long) object1.get("id");
-		    	temp.name = (String) object1.get("name");
-		    	temp.screenName = (String) object1.get("screen_name");
-		    	temp.description = (String) object1.get("description");
-		    	temp.characterNumber = temp.description.length();
-		    	
-		    	userVector.add(temp);
-	        }
-		}
-		return userVector;
+	public static void main(String[] args) {
+		User prova = new User();
+		Vector <User> utenti = prova.fillUp();
+		System.out.println(utenti.elementAt(3).name);
+		System.out.println(utenti.elementAt(3).description);
+		System.out.println(utenti.elementAt(3).characterNumber);
+		System.out.println(utenti.elementAt(3).descriptionProperties);
 	}
 }
