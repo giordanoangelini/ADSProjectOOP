@@ -2,7 +2,6 @@ package it.SpringBootAPI.ADSProjectOOP.fetch;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
@@ -20,7 +19,7 @@ public class FetchClass {
 			
 		try { 
 			URLConnection openConnection = 
-					new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/friends/list.json?screen_name=efrontoni&count=5").openConnection();
+					new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/friends/list.json?screen_name=efrontoni&count=10").openConnection();
 			BufferedInputStream in =new BufferedInputStream(openConnection.getInputStream());
 				
 			try {
