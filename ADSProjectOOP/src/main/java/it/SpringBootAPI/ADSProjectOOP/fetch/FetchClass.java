@@ -47,15 +47,16 @@ public class FetchClass {
 	//metodo che effettua il PARSING del JSON
 	public JSONObject parsing () {	
 			
-		String jString = getJSONFromURL();
-		JSONObject json = null;
-		
-		JSONParser parser = new JSONParser(); 
+		JSONObject obj = null; //definisco un oggetto JSONObject e lo inizializzo a null
+		String data = getJSONFromURL();
 		try {
-			json = (JSONObject) parser.parse(jString);
+			obj = (JSONObject)JSONValue.parseWithException(data);
+		
 		} catch (ParseException e) {
+		
 			e.printStackTrace();
-		}
-			return json;
+		}	 //parse JSON Object
+		
+		return obj;
 	}
 }
