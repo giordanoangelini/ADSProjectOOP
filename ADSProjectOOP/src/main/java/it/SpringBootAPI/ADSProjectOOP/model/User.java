@@ -49,12 +49,12 @@ public class User {
 			boolean link = isThereLink(text);
 			boolean hashtag = isThereHashtag(text);
 			boolean tag = isThereTag(text);
-			if (!link && !hashtag && tag) p = 2;
-			if (!link && hashtag && !tag) p = 3;
-			if (!link && hashtag && tag)  p = 4;
-			if (link && !hashtag && tag)  p = 5;
-			if (link && hashtag && !tag)  p = 6;
-			if (link && hashtag && tag)   p = 7;
+			if (!link && !hashtag &&  tag)  p = 2;
+			if (!link &&  hashtag && !tag)  p = 3;
+			if (!link &&  hashtag &&  tag)  p = 4;
+			if ( link && !hashtag &&  tag)  p = 5;
+			if ( link &&  hashtag && !tag)  p = 6;
+			if ( link &&  hashtag &&  tag)  p = 7;
 		}
 		return p;
 	}
