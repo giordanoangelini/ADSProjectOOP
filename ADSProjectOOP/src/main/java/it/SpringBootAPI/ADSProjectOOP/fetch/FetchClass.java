@@ -19,7 +19,7 @@ public class FetchClass {
 			
 		try { 
 			URLConnection openConnection = 
-					new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/friends/list.json?screen_name=efrontoni&count=10").openConnection();
+					new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/friends/list.json?screen_name=efrontoni&count=100").openConnection();
 			BufferedInputStream in =new BufferedInputStream(openConnection.getInputStream());
 				
 			try {

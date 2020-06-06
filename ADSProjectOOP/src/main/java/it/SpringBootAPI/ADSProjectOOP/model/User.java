@@ -15,7 +15,7 @@ public class User {
 	private int characterNumber;
 	private int descriptionProperties;
 	
-	public Vector<User> fillUp() {
+	protected Vector <User> fillUp() {
 		FetchClass fetchObject = new FetchClass();
 		JSONObject jObject = fetchObject.parsing();
 		
@@ -46,9 +46,15 @@ public class User {
 		int p = 0;
 		if (isThereDescription(text)) {
 			p = 1;
-			if (isThereLink(text) && !isThereHashtag(text)) p = 2;
-			if (!isThereLink(text) && isThereHashtag(text)) p = 3;
-			if (!isThereLink(text) && !isThereHashtag(text)) p = 4;
+			boolean link = isThereLink(text);
+			boolean hashtag = isThereHashtag(text);
+			boolean tag = isThereTag(text);
+			if (!link && !hashtag && tag) p = 2;
+			if (!link && hashtag && !tag) p = 3;
+			if (!link && hashtag && tag)  p = 4;
+			if (link && !hashtag && tag)  p = 5;
+			if (link && hashtag && !tag)  p = 6;
+			if (link && hashtag && tag)   p = 7;
 		}
 		return p;
 	}
@@ -60,7 +66,7 @@ public class User {
 	
 	private boolean isThereLink(String text) {
 		if ((text.contains("www.")) || (text.contains("https://")) || 
-		    (text.contains(".com")) || (text.contains(".net")) || 
+		    (text.contains(".com")) || (text.contains(".net"))     || 
 		    (text.contains(".it"))) return true;
 		return false;
 	}
@@ -70,6 +76,10 @@ public class User {
 		return false;
 	}
 	
+	private boolean isThereTag(String text) {
+		if (text.contains("@")) return true;
+		return false;
+	}
 	
 	public  long getID() {
 		return ID;
@@ -93,14 +103,5 @@ public class User {
 
 	public int getDescriptionProperties() {
 		return descriptionProperties;
-	}
-	
-	public static void main(String[] args) {
-		User prova = new User();
-		Vector <User> utenti = prova.fillUp();
-		System.out.println(utenti.elementAt(3).name);
-		System.out.println(utenti.elementAt(3).description);
-		System.out.println(utenti.elementAt(3).characterNumber);
-		System.out.println(utenti.elementAt(3).descriptionProperties);
 	}
 }
