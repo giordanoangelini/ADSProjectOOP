@@ -3,9 +3,10 @@ package it.SpringBootAPI.ADSProjectOOP.model;
 import java.util.Vector;
 
 public class Database {
+	
 	private Vector <User> database;
 	
-	Database() {
+	public Database() {
 		User filler = new User();
 		database = filler.fillUp();
 	}

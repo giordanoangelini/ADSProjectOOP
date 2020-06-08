@@ -52,9 +52,10 @@ public class User {
 			if (!link && !hashtag &&  tag)  p = 2;
 			if (!link &&  hashtag && !tag)  p = 3;
 			if (!link &&  hashtag &&  tag)  p = 4;
-			if ( link && !hashtag &&  tag)  p = 5;
-			if ( link &&  hashtag && !tag)  p = 6;
-			if ( link &&  hashtag &&  tag)  p = 7;
+			if ( link && !hashtag && !tag)  p = 5;
+			if ( link && !hashtag &&  tag)  p = 6;
+			if ( link &&  hashtag && !tag)  p = 7;
+			if ( link &&  hashtag &&  tag)  p = 8;
 		}
 		return p;
 	}
@@ -81,11 +82,11 @@ public class User {
 		return false;
 	}
 	
-	public  long getID() {
+	public long getID() {
 		return ID;
 	}
 
-	public  String getName() {
+	public String getName() {
 		return name;
 	}
 
