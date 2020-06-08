@@ -15,7 +15,7 @@ public class User {
 	private int characterNumber;
 	private int descriptionProperties;
 	
-	protected Vector <User> fillUp() {
+	public Vector <User> fillUp() {
 		FetchClass fetchObject = new FetchClass();
 		JSONObject jObject = fetchObject.parsing();
 		
