@@ -86,23 +86,23 @@ public class DescriptionStats {
 
 	private String longestDescription() {
 		Database obj = new Database();
-		String max = null;
-		for (int i = 0; i < obj.getDatabase().size(); i++) {
-			if (obj.getDatabase().elementAt(i+1).getDescription().length() >= 
-				obj.getDatabase().elementAt(i).getDescription().length())
-				max = obj.getDatabase().elementAt(i+1).getDescription();
+		String max = obj.getDatabase().elementAt(0).getDescription();
+		for (int i = 1; i < obj.getDatabase().size(); i++) {
+			if (obj.getDatabase().elementAt(i).getDescription().length() >= 
+				obj.getDatabase().elementAt(i-1).getDescription().length())
+				max = obj.getDatabase().elementAt(i).getDescription();
 		}
 		return max;
 	}
 
 	private String shortestDescription() {
 		Database obj = new Database();
-		String min = null;
-		for (int i = 0; i < obj.getDatabase().size(); i++) {
-			if ((obj.getDatabase().elementAt(i+1).getDescription().length() != 0) &&
-				(obj.getDatabase().elementAt(i+1).getDescription().length() <=
-				 obj.getDatabase().elementAt(i+1).getDescription().length()))
-				min = obj.getDatabase().elementAt(i+1).getDescription();
+		String min = obj.getDatabase().elementAt(0).getDescription();
+		for (int i = 1; i < obj.getDatabase().size(); i++) {
+			if ((obj.getDatabase().elementAt(i).getDescription().length() != 0) &&
+				(obj.getDatabase().elementAt(i).getDescription().length() <=
+				 obj.getDatabase().elementAt(i-1).getDescription().length()))
+				min = obj.getDatabase().elementAt(i).getDescription();
 		}
 		return min;
 	}
@@ -129,5 +129,17 @@ public class DescriptionStats {
 
 	public String getShortestDescription() {
 		return shortestDescription;
+	}
+	
+	public static void main (String[] args) {
+		Database obj = new Database();
+		DescriptionStats obj1 = new DescriptionStats();
+		
+		System.out.println(obj.getDatabase().size());
+		System.out.println(obj1.notEmptyDescriptions());
+		System.out.println(obj1.averageCharacters());
+		System.out.println(obj1.linkPercentage());
+		System.out.println(obj1.longestDescription());
+		System.out.println(obj1.shortestDescription());
 	}
 }
