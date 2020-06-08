@@ -10,7 +10,7 @@ public class DescriptionStats {
 	private String longestDescription;
 	private String shortestDescription;
 	
-	DescriptionStats() {
+	public DescriptionStats() {
 		averageCharacters = averageCharacters();
 		linkPercentage = linkPercentage();
 		hashtagPercentage = hashtagPercentage();

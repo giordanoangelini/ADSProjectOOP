@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import it.SpringBootAPI.ADSProjectOOP.database.Database;
 import it.SpringBootAPI.ADSProjectOOP.database.FrontDatabase;
+import it.SpringBootAPI.ADSProjectOOP.util.stats.DescriptionStats;
 
 @RestController
 public class Controller {
@@ -16,11 +17,11 @@ public class Controller {
 	public FrontDatabase getFriends() {
 		return new FrontDatabase();
 	}
-	/*@GetMapping("/friends")
-	public Database getVector() {
-		return null;
+	@GetMapping("/stats")
+	public DescriptionStats getStats() {
+		return new DescriptionStats();
 	}
-	@GetMapping("/friends")
+	/*@GetMapping("/friends")
 	public Database getVector() {
 		return null;
 	}*/
