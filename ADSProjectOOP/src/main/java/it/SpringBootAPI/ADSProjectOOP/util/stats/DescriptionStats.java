@@ -4,9 +4,9 @@ import it.SpringBootAPI.ADSProjectOOP.database.Database;
 
 public class DescriptionStats {
 	private float averageCharacters;
-	private float linkPercentage;
-	private float hashtagPercentage;
-	private float tagPercentage;
+	private String linkPercentage;
+	private String hashtagPercentage;
+	private String tagPercentage;
 	private String longestDescription;
 	private String shortestDescription;
 	
@@ -39,7 +39,7 @@ public class DescriptionStats {
 		return (float) counter/(notEmptyDescriptions());
 	}
 
-	private float linkPercentage() {
+	private String linkPercentage() {
 		Database obj = new Database();
 		int counter = 0;
 		for (int i = 0; i < obj.getDatabase().size(); i++) {
@@ -51,10 +51,11 @@ public class DescriptionStats {
 					counter++;
 			}
 		}
-		return (float) counter*100/(notEmptyDescriptions());
+		float percentage = (float) counter*100/(notEmptyDescriptions());
+		return percentage + "%";
 	}
 
-	private float hashtagPercentage() {
+	private String hashtagPercentage() {
 		Database obj = new Database();
 		int counter = 0;
 		for (int i = 0; i < obj.getDatabase().size(); i++) {
@@ -66,10 +67,11 @@ public class DescriptionStats {
 					counter++;
 			}
 		}
-		return (float) counter*100/(notEmptyDescriptions());
+		float percentage = (float) counter*100/(notEmptyDescriptions());
+		return percentage + "%";
 	}
 
-	private float tagPercentage() {
+	private String tagPercentage() {
 		Database obj = new Database();
 		int counter = 0;
 		for (int i = 0; i < obj.getDatabase().size(); i++) {
@@ -81,7 +83,8 @@ public class DescriptionStats {
 					counter++;
 			}
 		}
-		return (float) counter*100/(notEmptyDescriptions());
+		float percentage = (float) counter*100/(notEmptyDescriptions());
+		return percentage + "%";
 	}
 
 	private String longestDescription() {
@@ -111,15 +114,15 @@ public class DescriptionStats {
 		return averageCharacters;
 	}
 	
-	public float getLinkPercentage() {
+	public String getLinkPercentage() {
 		return linkPercentage;
 	}
 	
-	public float getHashtagPercentage() {
+	public String getHashtagPercentage() {
 		return hashtagPercentage;
 	}
 	
-	public float getTagPercentage() {
+	public String getTagPercentage() {
 		return tagPercentage;
 	}
 	
