@@ -133,16 +133,4 @@ public class DescriptionStats {
 	public String getShortestDescription() {
 		return shortestDescription;
 	}
-	
-	public static void main (String[] args) {
-		Database obj = new Database();
-		DescriptionStats obj1 = new DescriptionStats();
-		
-		System.out.println(obj.getDatabase().size());
-		System.out.println(obj1.notEmptyDescriptions());
-		System.out.println(obj1.averageCharacters());
-		System.out.println(obj1.linkPercentage());
-		System.out.println(obj1.longestDescription());
-		System.out.println(obj1.shortestDescription());
-	}
 }
