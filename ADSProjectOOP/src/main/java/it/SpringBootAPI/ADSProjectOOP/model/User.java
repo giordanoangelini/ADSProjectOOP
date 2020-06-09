@@ -66,19 +66,18 @@ public class User {
 	}
 	
 	private boolean isThereLink(String text) {
-		if ((text.contains("www.")) || (text.contains("https://")) || 
-		    (text.contains(".com")) || (text.contains(".net"))     || 
-		    (text.contains(".it"))) return true;
+		if (text.contains(" " + "https://") ||
+			text.contains(" " + "www.")) return true;
 		return false;
 	}
 	
 	private boolean isThereHashtag(String text) {
-		if (text.contains("#")) return true;
+		if (text.contains(" " + "#")) return true;
 		return false;
 	}
 	
 	private boolean isThereTag(String text) {
-		if (text.contains("@")) return true;
+		if (text.contains(" " + "@")) return true;
 		return false;
 	}
 	

@@ -21,7 +21,7 @@ public class Controller {
 	public DescriptionStats getStats() {
 		return new DescriptionStats();
 	}
-	/*@GetMapping("/friends")
+	/*@GetMapping("/filter")
 	public Database getVector() {
 		return null;
 	}*/
