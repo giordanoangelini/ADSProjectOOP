@@ -19,7 +19,8 @@ public class FetchClass {
 			
 		try { 
 			URLConnection openConnection = 
-					new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/friends/list.json?screen_name=efrontoni&count=100").openConnection();
+					new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/"
+						  + "friends/list.json?screen_name=efrontoni&count=100").openConnection();
 			BufferedInputStream in =new BufferedInputStream(openConnection.getInputStream());
 				
 			try {
@@ -30,18 +31,17 @@ public class FetchClass {
 				while ((line = buf.readLine() ) != null) {
 					data += ( line ); //lettura riga per riga
 				}
-					
-					
+						
 			} finally {
 				in.close();
 			}
 				
-			} catch (IOException e) {	
+		} catch (IOException e) {	
 				System.out.println ("I/O Error" + e);
-			}
-			
-			return data;
 		}
+		
+		return data;
+	}
 	
 	//metodo che effettua il PARSING del JSON
 	public JSONObject parsing () {	
