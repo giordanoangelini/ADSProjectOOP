@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import it.SpringBootAPI.ADSProjectOOP.database.Database;
 import it.SpringBootAPI.ADSProjectOOP.database.FrontDatabase;
 import it.SpringBootAPI.ADSProjectOOP.util.stats.DescriptionStats;
+import it.SpringBootAPI.ADSProjectOOP.util.filters.FilterDescription;
+import it.SpringBootAPI.ADSProjectOOP.model.User;
+
+import java.util.Vector;
 
 @RestController
 public class Controller {
@@ -21,9 +25,10 @@ public class Controller {
 	public DescriptionStats getStats() {
 		return new DescriptionStats();
 	}
-	/*@GetMapping("/filter")
-	public Database getVector() {
-		return null;
-	}*/
+	@GetMapping("/filter")
+	public Vector <User> getFiltered() {
+		FilterDescription obj = new FilterDescription();
+		return obj.filterDescription();
+	}
 }
 
