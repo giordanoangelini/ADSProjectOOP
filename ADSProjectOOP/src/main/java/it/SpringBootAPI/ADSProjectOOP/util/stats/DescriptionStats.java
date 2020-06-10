@@ -1,6 +1,6 @@
 package it.SpringBootAPI.ADSProjectOOP.util.stats;
 
-import it.SpringBootAPI.ADSProjectOOP.database.Database;
+import it.SpringBootAPI.ADSProjectOOP.database.*;
 
 public class DescriptionStats {
 	private float averageCharacters;

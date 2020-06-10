@@ -1,11 +1,8 @@
 package it.SpringBootAPI.ADSProjectOOP.util.filters;
 
 import it.SpringBootAPI.ADSProjectOOP.model.*;
-import it.SpringBootAPI.ADSProjectOOP.database.*;
 
-import java.util.Vector;
-
-public class FilterDescription implements Filter {
+public class FilterDescription extends Filter {
 
 	public boolean filter (User friends) {
 		
@@ -14,17 +11,9 @@ public class FilterDescription implements Filter {
 		else return false;
 	}
 	
-	public Vector <User> filterDescription(){
-		
-		Vector <User> positiveFriendsVector = new Vector <User>();
-		Vector <User> allFriends = new Vector <User>();
-		Database database = new Database();
-		allFriends=database.getDatabase();
-		for (User friends : allFriends) {
-			if (filter (friends)) {
-				positiveFriendsVector.add(friends);
-			}
-		}
-		return positiveFriendsVector;
-	}
+	/*public Vector <FrontUser> filterDescription() {
+		Filter obj = new Filter();
+		Vector <FrontUser> vector = obj.filterVector();
+		return vector;
+	}*/
 }
