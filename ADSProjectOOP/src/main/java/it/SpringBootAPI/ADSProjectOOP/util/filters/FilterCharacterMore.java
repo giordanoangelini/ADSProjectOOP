@@ -6,7 +6,7 @@ public class FilterCharacterMore extends Filter {
 	
 	public boolean filter (User friends, int min) {
 		int param = friends.getCharacterNumber();
-		if (param > min) return true;
+		if (param >= min) return true;
 		else return false;		
 	}
 }
