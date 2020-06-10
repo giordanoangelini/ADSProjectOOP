@@ -13,7 +13,7 @@ public class Database {
 		database = filler.fillUp();
 	}
 
-	public Vector<User> getDatabase() {
+	public Vector <User> getDatabase() {
 		return database;
 	}
 }

@@ -52,7 +52,7 @@ public class DescriptionStats {
 			}
 		}
 		float percentage = (float) counter*100/(notEmptyDescriptions());
-		return percentage + "%";
+		return String.format("%.2f", percentage) + "%";
 	}
 
 	private String hashtagPercentage() {
@@ -68,7 +68,7 @@ public class DescriptionStats {
 			}
 		}
 		float percentage = (float) counter*100/(notEmptyDescriptions());
-		return percentage + "%";
+		return String.format("%.2f", percentage) + "%";
 	}
 
 	private String tagPercentage() {
@@ -84,7 +84,7 @@ public class DescriptionStats {
 			}
 		}
 		float percentage = (float) counter*100/(notEmptyDescriptions());
-		return percentage + "%";
+		return String.format("%.2f", percentage) + "%";
 	}
 
 	private String longestDescription() {
