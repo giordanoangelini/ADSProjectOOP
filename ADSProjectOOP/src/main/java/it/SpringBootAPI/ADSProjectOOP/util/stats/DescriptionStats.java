@@ -36,7 +36,7 @@ public class DescriptionStats {
 			if (obj.getDatabase().elementAt(i).getDescription().length() != 0)
 				counter += obj.getDatabase().elementAt(i).getDescription().length();
 		}
-		return (float) counter/(notEmptyDescriptions());
+		return (float) counter/notEmptyDescriptions();
 	}
 
 	private String linkPercentage() {
