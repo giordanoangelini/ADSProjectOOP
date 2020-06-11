@@ -6,8 +6,8 @@ public class FilterWord extends Filter{
 
 	public boolean filter (User friend, String word) {
 		
-		String text = friend.getDescription();
-		if (text.contains(word)) return true;
+		String text = friend.getDescription().toLowerCase();
+		if (text.contains(word.toLowerCase())) return true;
 			return false;
 	}
 }
