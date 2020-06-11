@@ -6,12 +6,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass;
 
-public class User {
+public class User extends FrontUser {
 	
 	private long ID;
-	private String name;
 	private String screenName;
-	private String description;
 	private int characterNumber;
 	private int descriptionProperties;
 	
@@ -85,16 +83,8 @@ public class User {
 		return ID;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public String getScreenName() {
 		return screenName;
-	}
-	
-	public String getDescription() {
-		return description;
 	}
 
 	public int getCharacterNumber() {

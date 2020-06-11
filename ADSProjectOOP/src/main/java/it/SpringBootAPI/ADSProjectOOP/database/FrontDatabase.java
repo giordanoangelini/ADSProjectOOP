@@ -10,7 +10,7 @@ public class FrontDatabase {
 	
 	public FrontDatabase() {
 		FrontUser filler = new FrontUser();
-		frontDatabase = filler.fillUp();
+		frontDatabase = filler.frontFillUp();
 	}
 
 	public Vector <FrontUser> getFrontDatabase() {

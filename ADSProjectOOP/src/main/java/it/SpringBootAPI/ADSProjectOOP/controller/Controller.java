@@ -26,42 +26,42 @@ public class Controller {
 	public DescriptionStats getStats() {
 		return new DescriptionStats();
 	}
-	@GetMapping("/description")
+	@GetMapping("/filter/description")
 	public Vector <FrontUser> getFilteredDescription() {
 		FilterDescription obj = new FilterDescription();
 		return obj.filterVector();
 	}
-	@GetMapping("/link")
+	@GetMapping("/filter/link")
 	public Vector <FrontUser> getFilteredLink() {
 		FilterLink obj = new FilterLink();
 		return obj.filterVector();
 	}
-	@GetMapping("/hashtag")
+	@GetMapping("/filter/hashtag")
 	public Vector <FrontUser> getFilteredHashtag() {
 		FilterHashtag obj = new FilterHashtag();
 		return obj.filterVector();
 	}
-	@GetMapping("/tag")
+	@GetMapping("/filter/tag")
 	public Vector <FrontUser> getFilteredTag() {
 		FilterTag obj = new FilterTag();
 		return obj.filterVector();
 	}
-	@GetMapping("/word")
+	@GetMapping("/filter/word")
 	public Vector <FrontUser> getFilteredWord(@RequestParam String word) {
 		FilterWord obj = new FilterWord();
 		return obj.filterVector(word);
 	}
-	@GetMapping("/lessThan")
+	@GetMapping("/filter/lessThan")
 	public Vector <FrontUser> getFilteredLess(@RequestParam int max) {
 		FilterCharacterLess obj = new FilterCharacterLess();
 		return obj.filterVector(max);
 	}
-	@GetMapping("/moreThan")
+	@GetMapping("/filter/moreThan")
 	public Vector <FrontUser> getFilteredMore(@RequestParam int min) {
 		FilterCharacterMore obj = new FilterCharacterMore();
 		return obj.filterVector(min);
 	}
-	@GetMapping("/between")
+	@GetMapping("/filter/between")
 	public Vector <FrontUser> getFilteredGap(@RequestParam int min, int max) {
 		FilterCharacterGap obj = new FilterCharacterGap();
 		return obj.filterVector(min, max);

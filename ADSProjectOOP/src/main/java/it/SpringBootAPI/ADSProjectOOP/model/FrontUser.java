@@ -8,10 +8,10 @@ import it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass;
 
 public class FrontUser {
 	
-	private String name;
-	private String description;
+	protected String name;
+	protected String description;
 	
-	public Vector <FrontUser> fillUp() {
+	public Vector <FrontUser> frontFillUp() {
 		FetchClass fetchObject = new FetchClass();
 		JSONObject jObject = fetchObject.parsing();
 		
