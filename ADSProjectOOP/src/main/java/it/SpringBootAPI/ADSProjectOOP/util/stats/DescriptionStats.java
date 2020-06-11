@@ -51,7 +51,7 @@ public class DescriptionStats {
 					counter++;
 			}
 		}
-		float percentage = (float) counter*100/(notEmptyDescriptions());
+		float percentage = (float) counter*100/notEmptyDescriptions();
 		return String.format("%.2f", percentage) + "%";
 	}
 
@@ -67,7 +67,7 @@ public class DescriptionStats {
 					counter++;
 			}
 		}
-		float percentage = (float) counter*100/(notEmptyDescriptions());
+		float percentage = (float) counter*100/notEmptyDescriptions();
 		return String.format("%.2f", percentage) + "%";
 	}
 
@@ -83,7 +83,7 @@ public class DescriptionStats {
 					counter++;
 			}
 		}
-		float percentage = (float) counter*100/(notEmptyDescriptions());
+		float percentage = (float) counter*100/notEmptyDescriptions();
 		return String.format("%.2f", percentage) + "%";
 	}
 

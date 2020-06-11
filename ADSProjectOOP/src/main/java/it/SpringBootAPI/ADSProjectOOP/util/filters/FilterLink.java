@@ -2,8 +2,6 @@ package it.SpringBootAPI.ADSProjectOOP.util.filters;
 
 import it.SpringBootAPI.ADSProjectOOP.model.*;
 
-import java.util.Vector;
-
 public class FilterLink extends Filter {
 	
 	public boolean filter (User friends) {
@@ -12,11 +10,5 @@ public class FilterLink extends Filter {
 		return true;
 		else
 		return false;
-	}
-	
-	public Vector <FrontUser> filterLink() {
-		Filter obj = new Filter();
-		Vector <FrontUser> vector = obj.filterVector();
-		return vector;
 	}
 }

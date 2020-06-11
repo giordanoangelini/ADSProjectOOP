@@ -10,10 +10,4 @@ public class FilterDescription extends Filter {
 		if (param != 0) return true;
 		else return false;
 	}
-	
-	/*public Vector <FrontUser> filterDescription() {
-		Filter obj = new Filter();
-		Vector <FrontUser> vector = obj.filterVector();
-		return vector;
-	}*/
 }
