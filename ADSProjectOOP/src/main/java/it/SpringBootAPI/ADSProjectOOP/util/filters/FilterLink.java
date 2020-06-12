@@ -4,11 +4,10 @@ import it.SpringBootAPI.ADSProjectOOP.model.*;
 
 public class FilterLink extends Filter {
 	
-	public boolean filter (User friends) {
-		int param = friends.getDescriptionProperties();
-		if (param == 5 || param == 6 || param == 7 || param == 8) 
-		return true;
-		else
-		return false;
+	public boolean filter (User friend, Object param1, Object param2) {
+		
+		int param = friend.getDescriptionProperties();
+		if (param == 5 || param == 6 || param == 7 || param == 8) return true;
+		else return false;
 	}
 }

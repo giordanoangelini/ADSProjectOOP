@@ -27,42 +27,50 @@ public class Controller {
 		return new DescriptionStats();
 	}
 	@GetMapping("/filter/description")
-	public Vector <FrontUser> getFilteredDescription() {
+	public Vector <FrontUser> getFilteredDescription
+	(@RequestParam Object param1, Object param2) {
 		FilterDescription obj = new FilterDescription();
-		return obj.filterVector();
+		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/link")
-	public Vector <FrontUser> getFilteredLink() {
+	public Vector <FrontUser> getFilteredLink
+	(@RequestParam Object param1, Object param2) {
 		FilterLink obj = new FilterLink();
-		return obj.filterVector();
+		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/hashtag")
-	public Vector <FrontUser> getFilteredHashtag() {
+	public Vector <FrontUser> getFilteredHashtag
+	(@RequestParam Object param1, Object param2) {
 		FilterHashtag obj = new FilterHashtag();
-		return obj.filterVector();
+		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/tag")
-	public Vector <FrontUser> getFilteredTag() {
+	public Vector <FrontUser> getFilteredTag
+	(@RequestParam Object param1, Object param2) {
 		FilterTag obj = new FilterTag();
-		return obj.filterVector();
+		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/word")
-	public Vector <FrontUser> getFilteredWord(@RequestParam String word) {
+	public Vector <FrontUser> getFilteredWord
+	(@RequestParam Object word, Object param2) {
 		FilterWord obj = new FilterWord();
-		return obj.filterVector(word);
+		return obj.filterVector(word, param2);
 	}
 	@GetMapping("/filter/lessThan")
-	public Vector <FrontUser> getFilteredLess(@RequestParam int max) {
+	public Vector <FrontUser> getFilteredLess
+	(@RequestParam Object max, Object param2) {
 		FilterCharacterLess obj = new FilterCharacterLess();
-		return obj.filterVector(max);
+		return obj.filterVector(max, param2);
 	}
 	@GetMapping("/filter/moreThan")
-	public Vector <FrontUser> getFilteredMore(@RequestParam int min) {
+	public Vector <FrontUser> getFilteredMore
+	(@RequestParam Object min, Object param2) {
 		FilterCharacterMore obj = new FilterCharacterMore();
-		return obj.filterVector(min);
+		return obj.filterVector(min, param2);
 	}
 	@GetMapping("/filter/between")
-	public Vector <FrontUser> getFilteredGap(@RequestParam int min, int max) {
+	public Vector <FrontUser> getFilteredGap
+	(@RequestParam Object min, Object max) {
 		FilterCharacterGap obj = new FilterCharacterGap();
 		return obj.filterVector(min, max);
 	}
