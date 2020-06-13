@@ -27,44 +27,51 @@ public class Controller {
 		return new DescriptionStats();
 	}
 	@GetMapping("/filter/description")
-	public Vector <FrontUser> getFilteredDescription
-	(@RequestParam Object param1, Object param2) {
+	public Vector <FrontUser> getFilteredDescription() {
+		Object param1 = "";
+		Object param2 = "";
 		FilterDescription obj = new FilterDescription();
 		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/link")
-	public Vector <FrontUser> getFilteredLink
-	(@RequestParam Object param1, Object param2) {
+	public Vector <FrontUser> getFilteredLink() {
+		Object param1 = "";
+		Object param2 = "";
 		FilterLink obj = new FilterLink();
 		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/hashtag")
-	public Vector <FrontUser> getFilteredHashtag
-	(@RequestParam Object param1, Object param2) {
+	public Vector <FrontUser> getFilteredHashtag() {
+		Object param1 = "";
+		Object param2 = "";
 		FilterHashtag obj = new FilterHashtag();
 		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/tag")
-	public Vector <FrontUser> getFilteredTag
-	(@RequestParam Object param1, Object param2) {
+	public Vector <FrontUser> getFilteredTag() {
+		Object param1 = "";
+		Object param2 = "";
 		FilterTag obj = new FilterTag();
 		return obj.filterVector(param1, param2);
 	}
 	@GetMapping("/filter/word")
 	public Vector <FrontUser> getFilteredWord
-	(@RequestParam Object word, Object param2) {
+	(@RequestParam Object word) {
+		Object param2 = "";
 		FilterWord obj = new FilterWord();
 		return obj.filterVector(word, param2);
 	}
 	@GetMapping("/filter/lessThan")
 	public Vector <FrontUser> getFilteredLess
-	(@RequestParam Object max, Object param2) {
+	(@RequestParam Object max) {
+		Object param2 = "";
 		FilterCharacterLess obj = new FilterCharacterLess();
 		return obj.filterVector(max, param2);
 	}
 	@GetMapping("/filter/moreThan")
 	public Vector <FrontUser> getFilteredMore
-	(@RequestParam Object min, Object param2) {
+	(@RequestParam Object min) {
+		Object param2 = "";
 		FilterCharacterMore obj = new FilterCharacterMore();
 		return obj.filterVector(min, param2);
 	}
