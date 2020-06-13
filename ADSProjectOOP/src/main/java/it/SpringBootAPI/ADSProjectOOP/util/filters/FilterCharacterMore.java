@@ -8,6 +8,8 @@ public class FilterCharacterMore extends Filter {
 		
 		String temp = param1.toString();
 		int min = Integer.valueOf(temp);
+		//String temp1 = param2.toString();
+		//int max = Integer.valueOf(temp);
 		int param = friend.getCharacterNumber();
 		if (param >= min) return true;
 		else return false;		

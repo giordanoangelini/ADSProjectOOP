@@ -70,7 +70,7 @@ public class Controller {
 	}
 	@GetMapping("/filter/between")
 	public Vector <FrontUser> getFilteredGap
-	(@RequestParam Object min, Object max) {
+	(@RequestParam Object min, @RequestParam Object max) {
 		FilterCharacterGap obj = new FilterCharacterGap();
 		return obj.filterVector(min, max);
 	}
