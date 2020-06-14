@@ -24,10 +24,10 @@ public class DescriptionStats {
 				longestDescription = longestDescription();
 				shortestDescription = shortestDescription();
 			} catch (ArithmeticException e) {
-				throw new StatsException("UNABLE TO GET STATS DUE TO ARITHMETIC EXCEPTION");
+				throw new StatsException();
 			}
 		} catch (NullPointerException e) {
-			throw new TooManyRequestException("TOO MANY REQUEST");
+			throw new TooManyRequestException();
 		}
 	}
 

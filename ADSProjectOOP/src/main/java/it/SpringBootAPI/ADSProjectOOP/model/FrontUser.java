@@ -36,7 +36,7 @@ public class FrontUser {
 			}
 			return frontUserVector;
 		} catch (NullPointerException e) {
-			throw new TooManyRequestException("TOO MANY REQUESTS");
+			throw new TooManyRequestException();
 		}
 	}
 

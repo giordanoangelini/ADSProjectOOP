@@ -42,7 +42,7 @@ public class User extends FrontUser {
 			}
 			return userVector;
 		} catch (NullPointerException e) {
-			throw new TooManyRequestException("TOO MANY REQUESTS");
+			throw new TooManyRequestException();
 		}
 	}
 	
