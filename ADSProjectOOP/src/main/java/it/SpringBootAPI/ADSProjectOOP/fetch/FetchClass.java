@@ -11,7 +11,7 @@ import java.net.URLConnection;
 
 public class FetchClass {
 			
-	private String getJSONFromURL () {
+	private String getJSONFromURL() {
 			
 		//vengono definite due variabili String per la lettura del file 
 		String line = "";

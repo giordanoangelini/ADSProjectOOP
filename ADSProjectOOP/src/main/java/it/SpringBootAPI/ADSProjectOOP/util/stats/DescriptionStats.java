@@ -1,6 +1,8 @@
 package it.SpringBootAPI.ADSProjectOOP.util.stats;
 
 import it.SpringBootAPI.ADSProjectOOP.database.*;
+import it.SpringBootAPI.ADSProjectOOP.exceptions.StatsException;
+import it.SpringBootAPI.ADSProjectOOP.exceptions.TooManyRequestException;
 import it.SpringBootAPI.ADSProjectOOP.model.*;
 
 public class DescriptionStats {
@@ -13,14 +15,22 @@ public class DescriptionStats {
 	private String shortestDescription;
 	
 	public DescriptionStats() {
-		averageCharacters = averageCharacters();
-		linkPercentage = linkPercentage();
-		hashtagPercentage = hashtagPercentage();
-		tagPercentage = tagPercentage();
-		longestDescription = longestDescription();
-		shortestDescription = shortestDescription();
+		try {
+			try {
+				averageCharacters = averageCharacters();
+				linkPercentage = linkPercentage();
+				hashtagPercentage = hashtagPercentage();
+				tagPercentage = tagPercentage();
+				longestDescription = longestDescription();
+				shortestDescription = shortestDescription();
+			} catch (ArithmeticException e) {
+				throw new StatsException("UNABLE TO GET STATS DUE TO ARITHMETIC EXCEPTION");
+			}
+		} catch (NullPointerException e) {
+			throw new TooManyRequestException("TOO MANY REQUEST");
+		}
 	}
-	
+
 	private int notEmptyDescriptions() {
 		Database obj = new Database();
 		int counter = 0;

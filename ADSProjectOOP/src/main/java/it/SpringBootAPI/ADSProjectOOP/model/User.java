@@ -4,6 +4,8 @@ import java.util.Vector;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import it.SpringBootAPI.ADSProjectOOP.exceptions.TooManyRequestException;
 import it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass;
 
 public class User extends FrontUser {
@@ -14,30 +16,34 @@ public class User extends FrontUser {
 	private int descriptionProperties;
 	
 	public Vector <User> fillUp() {
-		FetchClass fetchObject = new FetchClass();
-		JSONObject jObject = fetchObject.parsing();
-		
-		JSONArray jArray = (JSONArray) (jObject.get("users"));
-		
-		Vector <User> userVector = new Vector <User>();
-		
-		for(Object object : jArray) {
-
-			if (object instanceof JSONObject) {
-		    	JSONObject object1 = (JSONObject)object; 
-		    	
-		    	User temp = new User();
-		    	temp.ID = (long) object1.get("id");
-		    	temp.name = (String) object1.get("name");
-		    	temp.screenName = (String) object1.get("screen_name");
-		    	temp.description = (String) object1.get("description");
-		    	temp.characterNumber = temp.description.length();
-		    	temp.descriptionProperties = properties(temp.description);
-		    	
-		    	userVector.add(temp);
-	        }
+		try {
+			FetchClass fetchObject = new FetchClass();
+			JSONObject jObject = fetchObject.parsing();
+			
+			JSONArray jArray = (JSONArray) (jObject.get("users"));
+			
+			Vector <User> userVector = new Vector <User>();
+			
+			for(Object object : jArray) {
+	
+				if (object instanceof JSONObject) {
+			    	JSONObject object1 = (JSONObject)object; 
+			    	
+			    	User temp = new User();
+			    	temp.ID = (long) object1.get("id");
+			    	temp.name = (String) object1.get("name");
+			    	temp.screenName = (String) object1.get("screen_name");
+			    	temp.description = (String) object1.get("description");
+			    	temp.characterNumber = temp.description.length();
+			    	temp.descriptionProperties = properties(temp.description);
+			    	
+			    	userVector.add(temp);
+		        }
+			}
+			return userVector;
+		} catch (NullPointerException e) {
+			throw new TooManyRequestException("TOO MANY REQUESTS");
 		}
-		return userVector;
 	}
 	
 	private int properties(String text) {
