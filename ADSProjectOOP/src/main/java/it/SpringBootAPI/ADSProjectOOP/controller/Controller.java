@@ -61,14 +61,14 @@ public class Controller {
 		FilterWord obj = new FilterWord();
 		return obj.filterVector(word, param2);
 	}
-	@GetMapping("/filter/lessThan")
+	@GetMapping("/filter/less")
 	public Vector <FrontUser> getFilteredLess
 	(@RequestParam Object max) {
 		Object param2 = "";
 		FilterCharacterLess obj = new FilterCharacterLess();
 		return obj.filterVector(max, param2);
 	}
-	@GetMapping("/filter/moreThan")
+	@GetMapping("/filter/more")
 	public Vector <FrontUser> getFilteredMore
 	(@RequestParam Object min) {
 		Object param2 = "";
