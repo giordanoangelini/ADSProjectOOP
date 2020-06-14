@@ -4,6 +4,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+import it.SpringBootAPI.ADSProjectOOP.exceptions.FetchException;
+
 import java.io.*;
 
 import java.net.URL;  
@@ -13,7 +15,6 @@ public class FetchClass {
 			
 	private String getJSONFromURL() {
 			
-		//vengono definite due variabili String per la lettura del file 
 		String line = "";
 		String data = "";
 			
@@ -25,11 +26,11 @@ public class FetchClass {
 				
 			try {
 					
-				InputStreamReader inR = new InputStreamReader(in); //stream del file
+				InputStreamReader inR = new InputStreamReader(in);
 				BufferedReader buf = new BufferedReader (inR);
 					
 				while ((line = buf.readLine() ) != null) {
-					data += ( line ); //lettura riga per riga
+					data += ( line ); 
 				}
 						
 			} finally {
@@ -37,24 +38,23 @@ public class FetchClass {
 			}
 				
 		} catch (IOException e) {	
-				System.out.println ("I/O Error" + e);
+				throw new FetchException();
 		}
 		
 		return data;
 	}
 	
-	//metodo che effettua il PARSING del JSON
+	
 	public JSONObject parsing () {	
 			
-		JSONObject obj = null; //definisco un oggetto JSONObject e lo inizializzo a null
+		JSONObject obj = null; 
 		String data = getJSONFromURL();
 		try {
 			obj = (JSONObject)JSONValue.parseWithException(data);
 		
 		} catch (ParseException e) {
-		
-			e.printStackTrace();
-		}	 //parse JSON Object
+			throw new FetchException();
+		}	
 		
 		return obj;
 	}
