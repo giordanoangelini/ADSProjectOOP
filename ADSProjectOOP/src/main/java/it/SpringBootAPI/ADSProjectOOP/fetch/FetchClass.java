@@ -21,7 +21,7 @@ public class FetchClass {
 	/** Effettua lo stream da URL del file JSON e ne salva il contenuto,
 	 * riga per riga, in una stringa.
 	 * @return Stringa che racchiude il contenuto del JSON streamato
-	 * @throws IOException nel caso di problemi di lettura del file JSON
+	 * @throws FetchException nel momento in cui a runtime si verifica un'eccezione di tipo IOException
 	 */
 	private String getJSONFromURL() {
 			

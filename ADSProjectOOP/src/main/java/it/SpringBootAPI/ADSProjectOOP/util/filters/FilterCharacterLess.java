@@ -18,6 +18,7 @@ public class FilterCharacterLess extends Filter {
 	 * @param param1: viene parsato da Object a int
 	 * @param param2 non utilizzato
 	 * @see it.SpringBootAPI.ADSProjectOOP.model.User
+	 * @trows Filter Exception nel momento in cui a runtime si verifica un'eccezione del tipo NumberFormatException 
 	 */
 	public boolean filter (User friend, Object param1, Object param2) {
 		int max = 0;

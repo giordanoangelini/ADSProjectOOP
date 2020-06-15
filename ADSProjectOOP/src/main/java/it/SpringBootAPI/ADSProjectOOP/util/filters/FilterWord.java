@@ -15,6 +15,7 @@ public class FilterWord extends Filter{
 	 * @param param1: viene parsato da Object a String così da poter applicare il metodo contains
 	 * @param param2 non utilizzato
 	 * @see it.SpringBootAPI.ADSProjectOOP.model.User
+	 * @trows Filter Exception nel momento in cui a runtime si verifica un'eccezione del tipo NumberFormatException 
 	 */
 	public boolean filter (User friend, Object param1, Object param2) {
 		String word = param1.toString();
