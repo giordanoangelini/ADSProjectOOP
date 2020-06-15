@@ -11,17 +11,17 @@ import it.SpringBootAPI.ADSProjectOOP.util.filters.*;
 
 import java.util.Vector;
 
-/** <b>Controller:</b>
+/** <b>Classe Controller:</b><br><br>
  * Tramite delle rotte risponde alle richieste 
- * del client di accedere alle funzionalità del server web 
+ * del client di accedere alle funzionalità del server web. 
  * @author Cristian Di Silvestre
  */
 
 @RestController
 public class Controller {
 	
-	/** Risponde all richiesta GET /metadata 
-	 * @return Database: vettore di User contente i metadata 
+	/** Risponde all richiesta GET /metadata.
+	 * @return Database: vettore di User contente i metadata. 
 	 * @see it.SpringBootAPI.ADSProjectOOP.database.Database
 	 */
 	@GetMapping("/metadata")
@@ -29,9 +29,9 @@ public class Controller {
 		return new Database();
 	}
 	
-	/** Risponde all richiesta GET /friends 
+	/** Risponde all richiesta GET /friends.
 	 * @return FrontDatabase: vettore di FrontUser contente 
-	 * i dati di interesse del client
+	 * i dati di interesse del client.
 	 * @see it.SpringBootAPI.ADSProjectOOP.database.FrontDatabase
 	 */
 	@GetMapping("/friends") 
@@ -39,9 +39,9 @@ public class Controller {
 		return new FrontDatabase();
 	}
 	
-	/** Risponde all richiesta GET /stats
-	 * @return l'oggetto DescriptionStats contente 
-	 * tutte le statistiche effettuate sui friends
+	/** Risponde all richiesta GET /stats.
+	 * @return DescriptionStats: contenente 
+	 * tutte le statistiche effettuate sui friends.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.stats.DescriptionStats
 	 */
 	@GetMapping("/stats")
@@ -49,9 +49,9 @@ public class Controller {
 		return new DescriptionStats();
 	}
 	
-	/** Risponde all richiesta GET /filter/description
+	/** Risponde all richiesta GET /filter/description.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * che hanno una descrizione non nulla
+	 * che hanno una descrizione non nulla.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterDescription
 	 */
 	@GetMapping("/filter/description")
@@ -62,9 +62,9 @@ public class Controller {
 		return obj.filterVector(param1, param2);
 	}
 	
-	/** Risponde all richiesta GET /filter/link
+	/** Risponde all richiesta GET /filter/link.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * che presentano un link nella descrizione 
+	 * che presentano un link nella descrizione.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterLink
 	 */
 	@GetMapping("/filter/link")
@@ -75,9 +75,9 @@ public class Controller {
 		return obj.filterVector(param1, param2);
 	}
 	
-	/** Risponde all richiesta GET /filter/hashtag
+	/** Risponde all richiesta GET /filter/hashtag.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * che presentano un hashtag nella descrizione 
+	 * che presentano un hashtag nella descrizione.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterHashtag
 	 */
 	@GetMapping("/filter/hashtag")
@@ -88,9 +88,9 @@ public class Controller {
 		return obj.filterVector(param1, param2);
 	}
 	
-	/** Risponde all richiesta GET /filter/tag
+	/** Risponde all richiesta GET /filter/tag.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * che presentano un tag nella descrizione 
+	 * che presentano un tag nella descrizione.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterTag
 	 */
 	@GetMapping("/filter/tag")
@@ -101,10 +101,10 @@ public class Controller {
 		return obj.filterVector(param1, param2);
 	}
 	
-	/** Risponde all richiesta GET /filter/word
-	 * @param word: parola da ricecrcare nelle descrizioni
+	/** Risponde all richiesta GET /filter/word.
+	 * @param word: parola da ricecrcare nelle descrizioni.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * che presentano il parametro nella descrizione 
+	 * che presentano il parametro nella descrizione.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterWord
 	 */
 	@GetMapping("/filter/word")
@@ -115,10 +115,10 @@ public class Controller {
 		return obj.filterVector(word, param2);
 	}
 	
-	/** Risponde all richiesta GET /filter/less
-	 * @param max: limite massimo di numero di caratteri delle descrizioni
+	/** Risponde all richiesta GET /filter/less.
+	 * @param max: limite massimo di numero di caratteri delle descrizioni.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * con una descrizione avente numero di caratteri inferiori al parametro
+	 * con una descrizione avente numero di caratteri inferiori al parametro.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterCharacterLess
 	 */
 	@GetMapping("/filter/less")
@@ -129,10 +129,10 @@ public class Controller {
 		return obj.filterVector(max, param2);
 	}
 	
-	/** Risponde all richiesta GET /filter/more
-	 * @param min: limite minimo di numero di caratteri delle descrizioni
+	/** Risponde all richiesta GET /filter/more.
+	 * @param min: limite minimo di numero di caratteri delle descrizioni.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * con una descrizione avente numero di caratteri maggiori del parametro
+	 * con una descrizione avente numero di caratteri maggiori del parametro.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterCharacterMore
 	 */
 	@GetMapping("/filter/more")
@@ -143,11 +143,11 @@ public class Controller {
 		return obj.filterVector(min, param2);
 	}
 	
-	/** Risponde all richiesta GET /filter/between
-	 * @param min: limite minimo di numero di caratteri delle descrizioni
-	 * @param max: limite massimo di numero di caratteri delle descrizioni
+	/** Risponde all richiesta GET /filter/between.
+	 * @param min: limite minimo di numero di caratteri delle descrizioni.
+	 * @param max: limite massimo di numero di caratteri delle descrizioni.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * con una descrizione avente numero di caratteri maggiori di min e minori di max
+	 * con una descrizione avente numero di caratteri maggiori di min e minori di max.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterCharacterGap
 	 */
 	@GetMapping("/filter/between")
