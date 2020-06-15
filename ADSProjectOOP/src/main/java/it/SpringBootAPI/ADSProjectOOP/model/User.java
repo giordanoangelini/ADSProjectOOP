@@ -9,12 +9,12 @@ import it.SpringBootAPI.ADSProjectOOP.exceptions.TooManyRequestException;
 import it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass;
 
 /** <b> Classe User: </b><br><br> Classe che definisce oggetti di tipo User copiando gli attributi
- * dal JSONObject (ottenuto dalla FetchClass) per poi eseguire funzioni per descrivere meglio le proprietà di ogni User.<br><br>
+ * dal JSONObject (ottenuto dalla FetchClass) per poi eseguire funzioni per descrivere meglio le proprieta' di ogni User.<br><br>
  * Attributi: 
- * <li>ID = codice numerico del friend Twitter
- * <li>screenName = nome visualizzato del friend Twitter
- * <li>characterNumber = numero di caratteri della descrizione del friend Twitter</li>
- * <li>descriptionProperties</li><br>
+ * <br>- ID = codice numerico del friend Twitter
+ * <br>- screenName = nome visualizzato del friend Twitter
+ * <br>- characterNumber = numero di caratteri della descrizione del friend Twitter
+ * <br>- descriptionProperties<br><br>
  *
  * Estende la classe FrontUser nella quale sono definiti 2 attributi comuni alle due classi (name e description).<br><br>
  * @author Giordano Angelini
@@ -32,8 +32,8 @@ public class User extends FrontUser {
 	 * Inoltre calcola (tramite i metodi lenght() e properties()) le caratteristiche di ogni User.
 	 * 
 	 * @return Vettore di oggetti User, ogni oggetto ha i suoi attributi inizializzati e ben definiti.
-	 * @throws NullPointerException se è stato superato il limite di richieste al server.
-	 * @see it.SpringbootAPI.ADSProjectOOP.fetch.FetchClass
+	 * @throws NullPointerException se e' stato superato il limite di richieste al server.
+	 * @see it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass
 	 */
 	public Vector <User> fillUp() {
 		try {

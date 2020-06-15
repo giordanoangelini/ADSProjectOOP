@@ -57,9 +57,8 @@ public class FetchClass {
 	/** Chiama il metodo getJSONFromURL per ottenere la stringa 
 	 * e ne effettua il parsing in JSONObject.
 	 * @return JSONObject contenente tutti i friends dell'utente appena presi in INPUT
-	 * @throws ParseException nel caso di problemi nel parsing della stringa
 	 */
-	public JSONObject parsing () {	
+	public JSONObject parsing() {	
 			
 		JSONObject obj = null; 
 		String data = getJSONFromURL();

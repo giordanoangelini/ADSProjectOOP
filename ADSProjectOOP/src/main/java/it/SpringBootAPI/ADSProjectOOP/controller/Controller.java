@@ -13,7 +13,7 @@ import java.util.Vector;
 
 /** <b>Classe Controller:</b><br><br>
  * Tramite delle rotte risponde alle richieste 
- * del client di accedere alle funzionalità del server web. 
+ * del client di accedere alle funzionalita' del server web. 
  * @author Cristian Di Silvestre
  */
 

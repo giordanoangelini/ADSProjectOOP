@@ -2,7 +2,7 @@ package it.SpringBootAPI.ADSProjectOOP.util.filters;
 
 import it.SpringBootAPI.ADSProjectOOP.model.*;
 
-/** <b>Classe FilterLink: </b>
+/** <b>Classe FilterLink: </b><br><br>
  * Tale classe filtra i friends valutando se la loro descrizione contiene un link.
  * @author Cristian Di Silvetre
  */

@@ -15,7 +15,7 @@ public class Database {
 	
 	/** Costruttore che inizializza ogni nuovo oggetto Database (Vector di oggetti User)
 	 * riempiendolo con ognuno dei friends tramite la funzione fillUp() della classe User.
-	 * @see it.Spackage it.SpringBootAPI.ADSProjectOOP.User
+	 * @see it.SpringBootAPI.ADSProjectOOP.model.User
 	 */
 	public Database() {
 		User filler = new User();

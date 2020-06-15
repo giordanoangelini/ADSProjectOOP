@@ -8,13 +8,13 @@ import it.SpringBootAPI.ADSProjectOOP.model.*;
 
 /** <b>Classe DescriptionStats: </b><br><br>
  * Classe che stila le statistiche sugli User (contenuti nei Vector) ottenuti dalla classe Database.<br>
- * Gli attrbuti sono:<br>
- * <li>averageCharacters = numero medio di caratteri delle descrizioni degli User (contenuti nel Vector)
- * <li>linkPercentage = percentuale di descrizioni contenenti link
- * <li>hashtagPercentage = percentuale di descrizioni contenenti hashtag
- * <li>tagPercentage = percentuale di descrizioni contenenti tag
- * <li>longestDescription = descrizione più lunga
- * <li>shortestDescription = descrizione più corta</li><br>
+ * Gli attrbuti sono:
+ * <br>- averageCharacters = numero medio di caratteri delle descrizioni degli User (contenuti nel Vector)
+ * <br>- linkPercentage = percentuale di descrizioni contenenti link
+ * <br>- hashtagPercentage = percentuale di descrizioni contenenti hashtag
+ * <br>- tagPercentage = percentuale di descrizioni contenenti tag
+ * <br>- longestDescription = descrizione piu' lunga
+ * <br>- shortestDescription = descrizione piu' corta<br>
  * 
  * @author Giordano Angelini
  * @see it.SpringBootAPI.ADSProjectOOP.database.Database
@@ -32,7 +32,7 @@ public class DescriptionStats {
 	
 	/** Costruttore che inizializza ogni attributo chiamando le varie funzioni per il calcolo delle statistiche.
 	 * @throws ArithmeticException nel caso in cui ci sia una divisione per 0 (descrizioni dei friends tutte vuote).
-	 * @throws NullPointerException se è stato superato il limite di richieste al server.
+	 * @throws NullPointerException se e' stato superato il limite di richieste al server.
 	 */
 	public DescriptionStats() {
 		try {

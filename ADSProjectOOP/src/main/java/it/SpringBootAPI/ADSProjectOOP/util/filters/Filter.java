@@ -13,8 +13,8 @@ public class Filter {
 	
 	/**Metodo astratto implementato in ogni filtro.
 	 * @param friend - sul quale si sta applicando il filtro
-	 * @param param1
-	 * @param param2
+	 * @param param1 - di tipo Object, verrà parsato in base al tipo di chiamata
+	 * @param param2 - di tipo Object, verrà parsato in base al tipo di chiamata
 	 * @return boolean
 	 */
 	public boolean filter (User friend, Object param1, Object param2) {
@@ -22,11 +22,11 @@ public class Filter {
 	}
 	
 	/**Scorre tramite un for tutti gli elementi del database 
-	 * e applica il metodo filter su ognuno di loro, se tale metodo dà risultato positivo
+	 * e applica il metodo filter su ognuno di loro, se tale metodo da' risultato positivo
 	 * prende l'elemento del FrontDatabase corrispondente al friend
 	 * e lo carica in un vettore di FrontUser.
-	 * @param param1
-	 * @param param2
+	 * @param param1 - verrà passato al metodo filter per applicare il filtro al friend
+	 * @param param2 - verrà passato al metodo filter per applicare il filtro al friend
 	 * @return positiveFriendsVector: vettore contenente tutti i friends positivi al filtro.
 	 * @see it.SpringBootAPI.ADSProjectOOP.database.Database
 	 * @see it.SpringBootAPI.ADSProjectOOP.database.FrontDatabase

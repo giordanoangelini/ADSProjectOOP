@@ -1,8 +1,8 @@
 package it.SpringBootAPI.ADSProjectOOP.exceptions;
 
-/** <b>FetchException: </b>
+/** <b>FetchException: </b><br><br>
  * eccezione personalizzata che si verifica in caso di problemi 
- * nello stream del file o nel oarsing in JSONObject
+ * nello stream del file o nel parsing in JSONObject
  * @author Cristian Di Silvestre
  */
 public class FetchException extends RuntimeException{

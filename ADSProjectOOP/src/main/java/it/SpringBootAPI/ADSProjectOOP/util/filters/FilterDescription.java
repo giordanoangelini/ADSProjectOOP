@@ -3,7 +3,7 @@ package it.SpringBootAPI.ADSProjectOOP.util.filters;
 import it.SpringBootAPI.ADSProjectOOP.model.*;
 
 /** <b>Classe FilterDescription: </b><br><br>
- * Tale classe filtra i friends valutando se la loro descrizione è nulla.
+ * Tale classe filtra i friends valutando se la loro descrizione e' vuota.
  * @author Cristian Di Silvetre
  */
 public class FilterDescription extends Filter {

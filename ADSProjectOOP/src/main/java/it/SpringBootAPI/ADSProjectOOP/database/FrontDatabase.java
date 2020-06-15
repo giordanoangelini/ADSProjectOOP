@@ -15,7 +15,7 @@ public class FrontDatabase {
 	
 	/** Costruttore che inizializza ogni nuovo oggetto Database (Vector di oggetti User)
 	 * riempiendolo con ognuno dei friends tramite la funzione frontFillUp() della classe FrontUser.
-	 * @see it.Spackage it.SpringBootAPI.ADSProjectOOP.FrontUser
+	 * @see it.SpringBootAPI.ADSProjectOOP.model.FrontUser
 	 */
 	public FrontDatabase() {
 		FrontUser filler = new FrontUser();

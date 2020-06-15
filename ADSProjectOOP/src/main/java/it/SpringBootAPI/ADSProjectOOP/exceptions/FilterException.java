@@ -1,7 +1,7 @@
 package it.SpringBootAPI.ADSProjectOOP.exceptions;
 
 
-/** <b>FilterException: </b>
+/** <b>FilterException: </b><br><br>
  * eccezione personalizzata che si verifica in caso di errore 
  * nell'inserimento del tipo di parametri 
  * @author Cristian Di Silvestre

@@ -16,8 +16,8 @@ public class FilterCharacterGap extends Filter {
 	 * @param param1: viene parsato da Object a int;
 	 * @param param2: viene parsato da Object a int.
 	 * @see it.SpringBootAPI.ADSProjectOOP.model.User
-	 * @see it.SpringBootAPI.ADSProjectOOP:util.filter.FilterCharacterMore
-	 * @see it.SpringBootAPI.ADSProjectOOP:util.filter.FilterCharacterLess
+	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterCharacterMore
+	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterCharacterLess
 	 */
 	public boolean filter (User friend, Object param1, Object param2) {		
 		FilterCharacterMore obj1 = new FilterCharacterMore();

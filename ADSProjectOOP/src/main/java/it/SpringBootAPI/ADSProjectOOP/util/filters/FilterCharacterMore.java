@@ -17,7 +17,7 @@ public class FilterCharacterMore extends Filter {
 	 * @param param1: viene parsato da Object a int;
 	 * @param param2 non utilizzato.
 	 * @see it.SpringBootAPI.ADSProjectOOP.model.User
-	 * @trows NumberFormatException nel momento in cui si presenta 
+	 * @throws NumberFormatException nel momento in cui si presenta 
 	 * un errore nel tipo di parametro inserito.
 	 */
 	public boolean filter (User friend, Object param1, Object param2) {
