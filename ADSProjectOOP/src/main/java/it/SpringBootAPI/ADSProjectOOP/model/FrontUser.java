@@ -8,11 +8,26 @@ import org.json.simple.JSONObject;
 import it.SpringBootAPI.ADSProjectOOP.exceptions.TooManyRequestException;
 import it.SpringBootAPI.ADSProjectOOP.fetch.FetchClass;
 
+/** <b> Classe FrontUser: </b><br><br> Classe che definisce oggetti di tipo User copiando gli attributi
+ * dal JSONObject (ottenuto dalla FetchClass).<br><br>
+ * Attributi: 
+ * <li>name = nome del friend Twitter
+ * <li>description = descrizione del friend Twitter</li><br>
+ *
+ * @author Giordano Angelini
+ */
+
 public class FrontUser {
 	
 	protected String name;
 	protected String description;
 	
+	/** Metodo che inizializza il nostro oggetto User ottenendo i valori degli attributi dal JSONObject proveniente dalla FetchClass.
+	 * 
+	 * @return Vettore di oggetti FrontUser, ogni oggetto ha i suoi attributi inizializzati e ben definiti.
+	 * @throws NullPointerException se è stato superato il limite di richieste al server.
+	 * @see it.SpringbootAPI.ADSProjectOOP.fetch.FetchClass
+	 */
 	public Vector <FrontUser> frontFillUp() {
 		try {
 			FetchClass fetchObject = new FetchClass();

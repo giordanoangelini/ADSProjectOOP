@@ -1,9 +1,25 @@
 package it.SpringBootAPI.ADSProjectOOP.util.stats;
 
 import it.SpringBootAPI.ADSProjectOOP.database.*;
+
 import it.SpringBootAPI.ADSProjectOOP.exceptions.StatsException;
 import it.SpringBootAPI.ADSProjectOOP.exceptions.TooManyRequestException;
 import it.SpringBootAPI.ADSProjectOOP.model.*;
+
+/** <b>Classe DescriptionStats: </b><br><br>
+ * Classe che stila le statistiche sugli User (contenuti nei Vector) ottenuti dalla classe Database.<br>
+ * Gli attrbuti sono:<br>
+ * <li>averageCharacters = numero medio di caratteri delle descrizioni degli User (contenuti nel Vector)
+ * <li>linkPercentage = percentuale di descrizioni contenenti link
+ * <li>hashtagPercentage = percentuale di descrizioni contenenti hashtag
+ * <li>tagPercentage = percentuale di descrizioni contenenti tag
+ * <li>longestDescription = descrizione più lunga
+ * <li>shortestDescription = descrizione più corta</li><br>
+ * 
+ * @author Giordano Angelini
+ * @see it.SpringBootAPI.ADSProjectOOP.database.Database
+ * @see it.SpringBootAPI.ADSProjectOOP.model.User
+ */
 
 public class DescriptionStats {
 	
@@ -14,6 +30,10 @@ public class DescriptionStats {
 	private String longestDescription;
 	private String shortestDescription;
 	
+	/** Costruttore che inizializza ogni attributo chiamando le varie funzioni per il calcolo delle statistiche.
+	 * @throws ArithmeticException nel caso in cui ci sia una divisione per 0 (descrizioni dei friends tutte vuote).
+	 * @throws NullPointerException se è stato superato il limite di richieste al server.
+	 */
 	public DescriptionStats() {
 		try {
 			try {
@@ -31,6 +51,10 @@ public class DescriptionStats {
 		}
 	}
 
+	/** Metodo che conta le descrizioni non vuote (con un mumero di caratteri > 0).
+	 * 
+	 * @return Counter, un intero che rappresenta il numero di descrizioni non vuote.
+	 */
 	private int notEmptyDescriptions() {
 		Database obj = new Database();
 		int counter = 0;
@@ -40,6 +64,10 @@ public class DescriptionStats {
 		return counter;
 	}
 	
+	/** Metodo che calcola il nuero di caratteri medi delle descizioni non vuote prese in esame.
+	 * 
+	 * @return Float che esprime il numero di caratteri medi.
+	 */
 	private float averageCharacters() {
 		Database obj = new Database();
 		int counter = 0;
@@ -47,6 +75,10 @@ public class DescriptionStats {
 		return (float) counter/notEmptyDescriptions();
 	}
 
+	/** Metodo che calcola la percentuale di descrizioni con link tra le descrizioni non vuote.
+	 * 
+	 * @return Stringa per la rappresentazione percentuale del float calcolato.
+	 */
 	private String linkPercentage() {
 		Database obj = new Database();
 		int counter = 0;
@@ -59,6 +91,10 @@ public class DescriptionStats {
 		return String.format("%.2f", percentage) + "%";
 	}
 	
+	/** Metodo che calcola la percentuale di descrizioni con hashtag tra le descrizioni non vuote.
+	 * 
+	 * @return Stringa per la rappresentazione percentuale del float calcolato.
+	 */
 	private String hashtagPercentage() {
 		Database obj = new Database();
 		int counter = 0;
@@ -71,6 +107,10 @@ public class DescriptionStats {
 		return String.format("%.2f", percentage) + "%";
 	}
 	
+	/** Metodo che calcola la percentuale di descrizioni con tag tra le descrizioni non vuote.
+	 * 
+	 * @return Stringa per la rappresentazione percentuale del float calcolato.
+	 */
 	private String tagPercentage() {
 		Database obj = new Database();
 		int counter = 0;
@@ -83,6 +123,10 @@ public class DescriptionStats {
 		return String.format("%.2f", percentage) + "%";
 	}
 	
+	/** Metodo che calcola quale sia la descrizione più lunga (maggior numero di caratteri) tra quelle prese in esame.
+	 * 
+	 * @return Stringa contenente la descrizione più lunga.
+	 */
 	private String longestDescription() {
 		Database obj = new Database();
 		String max = "";
@@ -91,6 +135,10 @@ public class DescriptionStats {
 		return max;
 	}
 	
+	/** Metodo che calcola quale sia la descrizione più corta (minor numero di caratteri) tra quelle prese in esame.
+	 * 
+	 * @return Stringa contenente la descrizione più corta.
+	 */
 	private String shortestDescription() {
 		Database obj = new Database();
 		StringBuffer buffer = new StringBuffer();
