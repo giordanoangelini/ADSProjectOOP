@@ -9,10 +9,20 @@ import it.SpringBootAPI.ADSProjectOOP.exceptions.FetchException;
 import java.io.*;
 
 import java.net.URL;  
-import java.net.URLConnection;   
+import java.net.URLConnection;  
+
+/** <b>Classe di ottenimento dei dati:</b>
+ * Tramite uno stream da URL tale classe salva i dati in un JSONObject.
+ * @author Cristian Di Silvestre
+ */
 
 public class FetchClass {
-			
+	
+	/** Effettua lo stream da URL del file JSON e ne salva il contenuto,
+	 * riga per riga, in una stringa.
+	 * @return Stringa che racchiude il contenuto del JSON streamato
+	 * @throws IOException nel caso di problemi di lettura del file JSON
+	 */
 	private String getJSONFromURL() {
 			
 		String line = "";
@@ -44,7 +54,11 @@ public class FetchClass {
 		return data;
 	}
 	
-	
+	/** Chiama il metodo getJSONFromURL per ottenere la stringa 
+	 * e ne effettua il parsing in JSONObject
+	 * @return JSONObject contenente tutti i friends dell'utente appena presi in INPUT
+	 * @throws ParseException nel caso di problemi nel parsing della stringa
+	 */
 	public JSONObject parsing () {	
 			
 		JSONObject obj = null; 
