@@ -88,8 +88,25 @@ In particolare le possibilità di filtraggio sono:
 <img src = "ADSProjectOOP/UML/08)%20Exception.png" width = 500>
 
 ### Sequence Diagram
-Di seguito sono riportati alcuni esempi di chiamate dal Controller`
-#### 
+* **Chiamata GET /metadata :**
+Il Controller esegue una chiamata `getMetadata()` a Database che, passando per User, richiama la FetchClass ottenendo i friends Twitter e restituisce al Controller un Vector di User contenente i metadati degli stessi.
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/metadata.png">
+
+* **Chiamata GET /friends :**
+Il Controller esegue una chiamata `getFriends()` a FrontDatabase che, passando per FrontUser, richiama la FetchClass ottenendo i friends Twitter e restituisce al Controller un Vector di User contenente i dati di interesse per il client (nome e descrizione) degli stessi.
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/friends.png">
+
+* **Chiamata GET /stats :**
+Il Controller esegue una chiamata `getStats()` a DescriptionStats da cui il costruttore chiama le funzioni interne alla classe per inizializzare gli attributi relativi alle varie statistiche. Ogni funzione interna chiama a sua volta Database per prelevare i dati da analizzare.
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/stats.jpg">
+
+* **Chiamata GET /filter/description :**
+Il Controller esegue una chiamata `getFilteredDescription()` alla superclasse Filter invocandone il metodo `filterVector()`. Tale metodo, dopo aver prelevato tutti i friends da Database (Vector di User), tramite un for, itera la chiamata al metodo `filter()` (overridato) per ogni elemento del vettore. Se il friend risulta positivo al filtro allora il suo elemento corrispondente di FrontDatabase viene caricato in un nuovo Vector di FrontUser. Questo vettore viene ritornato al Controller.</br ></br >_Le altre chiamate corrispondenti ai vari filtri (tranne `/filter/between`) sono assimilabili con quanto appena descritto e non sono riportate in questo documento per brevità dello stesso._
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/filter_description.png">
+
+* **Chiamata GET /filter/between :**
+Il Controller esegue una chiamata `getFilteredGap()` alla superclasse Filter invocandone il metodo `filterVector()`. Tale metodo, dopo aver prelevato tutti i friends da Database (Vector di User), tramite un for, itera la chiamata al metodo `filter()` (overridato) per ogni elemento del vettore. In questo caso `filter()` invoca l'omonimo metodo di FilterCharacterLess e FilterCharacterMore per valutare se il numero di carattei della descrizione è interno al range dato. Se il friend risulta positivo al filtro allora il suo elemento corrispondente di FrontDatabase viene caricato in un nuovo Vector di FrontUser. Questo vettore viene ritornato al Controller.
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/between.png">
 
 ## Note
 
