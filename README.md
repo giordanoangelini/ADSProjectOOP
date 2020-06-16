@@ -52,10 +52,51 @@ In particolare le possibilità di filtraggio sono:
 |/filter/link|---|restituisce i friends che hanno un link nella descrizione|
 |/filter/hashtag|---|restituisce i friends che hanno un hashtag nella descrizione|
 |/filter/tag|---|restituisce i friends che hanno un tag nella descrizione|
-|/filter/word|word = _parola_specificata_|restituisce i friends che hanno la parola specificata nella descrizione|
+|/filter/word|word = _parola_data_|restituisce i friends che hanno la parola specificata nella descrizione|
 |/filter/less|max = _valore_massimo_|restituisce i friends che hanno una descrizione con numero di caratteri minore del massimo specificato|
 |/filter/more|min = _valore_minimo_|restituisce i friends che hanno una descrizione con numero di caratteri maggiore del minimo specificato|
 |/filter/between|min = _valore_minimo_, max = _valore_massimo_|restituisce i friends che hanno una descrizione con numero di caratteri maggiore del minimo e minore del massimo specificati|
+
+## UML
+### Class Diagram
+
+#### it.SpringBootAPI.ADSProjectOOP
+
+<img src = "ADSProjectOOP/UML/02)%20ADSProjectOOP.png">
+
+#### Application
+
+<img src = "ADSProjectOOP/UML/10)%20Application.png" width = 400>
+
+#### it.SpringBootAPI.ADSProjectOOP.controller
+
+<img src = "ADSProjectOOP/UML/09)%20Controller.png" width = 400>
+
+#### it.SpringBootAPI.ADSProjectOOP.fetch
+
+<img src = "ADSProjectOOP/UML/03)%20FetchClass.png" width = 200>
+
+#### it.SpringBootAPI.ADSProjectOOP.model
+
+<img src = "ADSProjectOOP/UML/04)%20User%26FrontUser.png" width = 500>
+
+#### it.SpringBootAPI.ADSProjectOOP.database
+
+<img src = "ADSProjectOOP/UML/05)%20FrontDatabase%26Database.png" width = 500>
+
+#### it.SpringBootAPI.ADSProjectOOP.util.stats
+
+<img src = "ADSProjectOOP/UML/07)%20DescriptionStats.png" width = 400>
+
+#### it.SpringBootAPI.ADSProjectOOP.util.filters
+
+<img src = "ADSProjectOOP/UML/06)%20Filter.png">
+
+#### it.SpringBootAPI.ADSProjectOOP.exceptions
+
+<img src = "ADSProjectOOP/UML/08)%20Exception.png" width = 500>
+
+### Sequence Diagram
 
 ## Note
 
