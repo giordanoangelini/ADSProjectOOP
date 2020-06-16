@@ -28,6 +28,8 @@ Più nello specifico viene effettuato lo stream di un file JSON contenente tutti
 "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/friends/list.json?screen_name=efrontoni&count=100".
 Come si può notare nella parte finale della stringa, vengono richiesti 100 friends dell'utente corrispondente allo screen_name di "efrontoni". In seguito i dati di interesse vengono prelevati dal file e salvati in un database costituito da un Vector.
 
+Il client si intefraccerà con l'applicazione tramite un API testing (ad esempio Postman) che sarà in ascolto sulla porta 8080 del webserver generato da SpringBoot, accessibile da https://localhost:8080 dopo aver lanciato l'applicazione come SpringBootApp. 
+
 ## Azioni possibili
 Le azioni effettuabili dal client sono:
 
@@ -35,7 +37,7 @@ Le azioni effettuabili dal client sono:
 
 
 ## Eseguire richieste
-Per eseguire le richieste GET si può installare un API testing (ad esempio Postman). La seguente tabella mostra le richieste possibili.
+La seguente tabella mostra le richieste possibili.
 
 |    TIPO        |ROTTA                          |DESCRIZIONE                               |
 |----------------|-------------------------------|-------------------------------------------|
