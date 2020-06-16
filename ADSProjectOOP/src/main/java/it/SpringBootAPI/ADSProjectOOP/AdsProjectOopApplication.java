@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /** <b>Main App: </b><br><br>
  * All'avvio effettua il download del dataset e avvia l'applicazione Spring.
- * @author Cristian Di Silvestre
  * @author Giordano Angelini
+ * @author Cristian Di Silvestre
 */
 @SpringBootApplication
 public class AdsProjectOopApplication {
