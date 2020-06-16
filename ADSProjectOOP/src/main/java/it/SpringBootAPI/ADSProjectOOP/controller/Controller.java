@@ -51,7 +51,7 @@ public class Controller {
 	
 	/** Risponde all richiesta GET /filter/description.
 	 * @return FrontDatabase: vettore contenente tutti i friends 
-	 * che hanno una descrizione non nulla.
+	 * che hanno una descrizione non vuota.
 	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterDescription
 	 */
 	@GetMapping("/filter/description")
@@ -59,6 +59,19 @@ public class Controller {
 		Object param1 = "";
 		Object param2 = "";
 		FilterDescription obj = new FilterDescription();
+		return obj.filterVector(param1, param2);
+	}
+	
+	/** Risponde all richiesta GET /filter/notDescription.
+	 * @return FrontDatabase: vettore contenente tutti i friends 
+	 * che hanno una descrizione vuota.
+	 * @see it.SpringBootAPI.ADSProjectOOP.util.filters.FilterNotDescription
+	 */
+	@GetMapping("/filter/notDescription")
+	public Vector <FrontUser> getFilteredNotDescription() {
+		Object param1 = "";
+		Object param2 = "";
+		FilterNotDescription obj = new FilterNotDescription();
 		return obj.filterVector(param1, param2);
 	}
 	
@@ -157,4 +170,3 @@ public class Controller {
 		return obj.filterVector(min, max);
 	}
 }
-
