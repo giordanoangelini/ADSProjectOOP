@@ -1,4 +1,32 @@
 # ADSProjectOOP
+L'applicazione nel repository permette, tramite REST API (GET), di ottenere i friends Twitter di un utente e di
+analizzare le descrizioni dei singoli friend al fine di effettuare analisi del testo, dei link, degli hashtag e 
+dei tag presenti nella descrizione del profilo dei vari utenti.
+E' inoltre possibile effettuare delle statistiche su tali dati e applicare una serie di filtri.
+
+Statistiche:
+Numero di caratteri medio delle descrizioni
+precentuale sul totale di utenti con descrizione 
+presenza di link e percentuale sul totale
+presenza di hashtag e percentuale sul totale
+presenza di tag e percentuale sul totale
+descrizione più lunga
+descrizione più corta
+
+Possibilità  di filtraggio:
+descrizioni presenti o meno
+numero minimo di caratteri
+numero massimo di caratteri
+numero di caratteri reintrante in un range dato 
+presenza o meno di tag
+presenza o meno di link
+presenza o meno di hashtag
+
+più nello specifico viene effettuato lo stream di un file JSON contenente tutti i friends tramite l'API 
+"https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/friends/list.json?screen_name=efrontoni&count=100".
+Come si può notare nella parte finale della stringa, vengono richiesti 100 friends dell'utente corrispondente allo screen_name di "efrontoni"
+
+
 
 <img src = "ADSProjectOOP/UML/01)%20UseCase.png" width = 400>
 
