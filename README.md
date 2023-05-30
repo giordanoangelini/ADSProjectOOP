@@ -1,4 +1,4 @@
-# Twitter API
+# ADSProjectOOP
 
 ## Introduzione
 L'applicazione nel repository permette, tramite REST API (GET), di ottenere i friends Twitter di un utente e di
@@ -15,7 +15,7 @@ E' inoltre possibile effettuare delle statistiche su tali dati e applicare una s
   * Descrizione più lunga;
   * Descrizione più corta.
 
-* Possibilità  di filtraggio ([specifiche](https://github.com/giordanoangelini/TwitterAPI_OOP_2020/#eseguire-richieste)):
+* Possibilità  di filtraggio ([specifiche](https://github.com/giordanoangelini/ADSProjectOOP/#eseguire-richieste)):
   * Descrizioni presenti o meno;
   * Numero minimo di caratteri;
   * Numero massimo di caratteri;
@@ -33,7 +33,7 @@ Il client si intefraccerà con l'applicazione tramite un API testing (ad esempio
 ## Azioni possibili
 Le azioni effettuabili dal client sono:
 
-<img src = "TwitterAPI_OOP_2020/UML/01)%20UseCase.png" width = 400>
+<img src = "ADSProjectOOP/UML/01)%20UseCase.png" width = 400>
 
 
 ## Eseguire richieste
@@ -63,52 +63,52 @@ In particolare le possibilità di filtraggio sono:
 ### Class Diagram
 
 * **it.SpringBootAPI.ADSProjectOOP**
-<img src = "TwitterAPI_OOP_2020/UML/02)%20ADSProjectOOP.png">
+<img src = "ADSProjectOOP/UML/02)%20ADSProjectOOP.png">
 
 * **Application**
-<img src = "TwitterAPI_OOP_2020/UML/10)%20Application.png" width = 400>
+<img src = "ADSProjectOOP/UML/10)%20Application.png" width = 400>
 
 * **it.SpringBootAPI.ADSProjectOOP.controller**
-<img src = "TwitterAPI_OOP_2020/UML/09)%20Controller.png" width = 400>
+<img src = "ADSProjectOOP/UML/09)%20Controller.png" width = 400>
 
 * **it.SpringBootAPI.ADSProjectOOP.fetch**
-<img src = "TwitterAPI_OOP_2020/UML/03)%20FetchClass.png" width = 200>
+<img src = "ADSProjectOOP/UML/03)%20FetchClass.png" width = 200>
 
 * **it.SpringBootAPI.ADSProjectOOP.model**
-<img src = "TwitterAPI_OOP_2020/UML/04)%20User%26FrontUser.png" width = 500>
+<img src = "ADSProjectOOP/UML/04)%20User%26FrontUser.png" width = 500>
 
 * **it.SpringBootAPI.ADSProjectOOP.database**
-<img src = "TwitterAPI_OOP_2020/UML/05)%20FrontDatabase%26Database.png" width = 500>
+<img src = "ADSProjectOOP/UML/05)%20FrontDatabase%26Database.png" width = 500>
 
 * **it.SpringBootAPI.ADSProjectOOP.util.stats**
-<img src = "TwitterAPI_OOP_2020/UML/07)%20DescriptionStats.png" width = 400>
+<img src = "ADSProjectOOP/UML/07)%20DescriptionStats.png" width = 400>
 
 * **it.SpringBootAPI.ADSProjectOOP.util.filters**
-<img src = "TwitterAPI_OOP_2020/UML/06)%20Filter.png">
+<img src = "ADSProjectOOP/UML/06)%20Filter.png">
 
 * **it.SpringBootAPI.ADSProjectOOP.exceptions**
-<img src = "TwitterAPI_OOP_2020/UML/08)%20Exception.png" width = 500>
+<img src = "ADSProjectOOP/UML/08)%20Exception.png" width = 500>
 
 ### Sequence Diagram
 * **Chiamata GET /metadata :**
 Il Controller esegue una chiamata `getMetadata()` a Database che, passando per User, richiama la FetchClass ottenendo i friends Twitter e restituisce al Controller un Vector di User contenente i metadati degli stessi.
-<img src = "TwitterAPI_OOP_2020/UML/Sequence%20Diagram/metadata.png">
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/metadata.png">
 
 * **Chiamata GET /friends :**
 Il Controller esegue una chiamata `getFriends()` a FrontDatabase che, passando per FrontUser, richiama la FetchClass ottenendo i friends Twitter e restituisce al Controller un Vector di User contenente i dati di interesse per il client (nome e descrizione) degli stessi.
-<img src = "TwitterAPI_OOP_2020/UML/Sequence%20Diagram/friends.png">
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/friends.png">
 
 * **Chiamata GET /stats :**
 Il Controller esegue una chiamata `getStats()` a DescriptionStats da cui il costruttore chiama le funzioni interne alla classe per inizializzare gli attributi relativi alle varie statistiche. Ogni funzione interna chiama a sua volta Database per prelevare i dati da analizzare.
-<img src = "TwitterAPI_OOP_2020/UML/Sequence%20Diagram/stats.jpg">
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/stats.jpg">
 
 * **Chiamata GET /filter/description :**
 Il Controller esegue una chiamata `getFilteredDescription()` alla superclasse Filter invocandone il metodo `filterVector()`. Tale metodo, dopo aver prelevato tutti i friends da Database (Vector di User), tramite un for, itera la chiamata al metodo `filter()` (overridato) per ogni elemento del vettore. Se il friend risulta positivo al filtro allora il suo elemento corrispondente di FrontDatabase viene caricato in un nuovo Vector di FrontUser. Questo vettore viene ritornato al Controller.</br ></br >_Le altre chiamate corrispondenti ai vari filtri (tranne `/filter/between`) sono assimilabili con quanto appena descritto e non sono riportate in questo documento per brevità dello stesso._
-<img src = "TwitterAPI_OOP_2020/UML/Sequence%20Diagram/filter_description.png">
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/filter_description.png">
 
 * **Chiamata GET /filter/between :**
 Il Controller esegue una chiamata `getFilteredGap()` alla superclasse Filter invocandone il metodo `filterVector()`. Tale metodo, dopo aver prelevato tutti i friends da Database (Vector di User), tramite un for, itera la chiamata al metodo `filter()` (overridato) per ogni elemento del vettore. In questo caso `filter()` invoca l'omonimo metodo di FilterCharacterLess e FilterCharacterMore per valutare se il numero di carattei della descrizione è interno al range dato. Se il friend risulta positivo al filtro allora il suo elemento corrispondente di FrontDatabase viene caricato in un nuovo Vector di FrontUser. Questo vettore viene ritornato al Controller.
-<img src = "TwitterAPI_OOP_2020/UML/Sequence%20Diagram/between.png">
+<img src = "ADSProjectOOP/UML/Sequence%20Diagram/between.png">
 
 ## Note
 
